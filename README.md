@@ -14,7 +14,7 @@ The folder `ONOS File` contains the files that you have to sobstitute in the ono
 have the same name of the files in the onos master folder. So you have to simply copy/paste it in the right folder.
 
 ## Steps to install QoS-Slice in Onos
-Before to install QoS-Slice you have to activate the `VPLS` application, already provided in the onos master.
+Before to install QoS-Slice you have to activate the [VPLS][VPLS]application, already provided in the onos master.
 In the the Qos-Slicing folder you have to run this command:
 
     onos-app localhost install! org.qosslice.app target/qosslice-app-2.3.0-rc3.oar  
@@ -37,5 +37,4 @@ To load a set of flow rules in a switch from a file you can use:
 
     sudo Simple_switch_CLI --thrift-port portNumber < .../Commands_s1.txt
     
-[GTP.v1]: https://en.wikipedia.org/wiki/GPRS_Tunnelling_Protocol
-[BMv2]: https://github.com/p4lang/behavioral-model
+[VPLS]: https://wiki.onosproject.org/display/ONOS/VPLS+User+Guide
