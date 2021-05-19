@@ -4,7 +4,7 @@ This Onos application provides network slicing and performance isolation, in ter
 
 The folders/file contain:
 * `ONOS File`: contains the files that you have to change in the onos master repository for utilizing the QoS-Slicing application.
-* `target`: contains compiled QoS-Slice application, e.g. the oar file. The compiled file is needed to install the application on onos
+* `target`: contains compiled QoS-Slice application, e.g. the oar file. The compiled file is needed to install the application on onos.
 * `src`: contains the application java source code. 
 * `topology`: is a python script for creating a mininet network.
 
@@ -37,6 +37,6 @@ To add/enrich a `slice` with performance isolation for the bandwidth, you have t
     qos-slice add-band SLICE-1 band1                
     qos-slice add-meter SLICE-1
     
-More in details, in the switches that belonging to the slice `SLICE-1` is installed a meter of type drop that  drop the packet ttha exceed 1Mbit.
+More in details, in the switches that belonging to the slice `SLICE-1` is installed a meter of type drop that drop the packet that exceed 1Mbit.
     
 [VPLS]: https://wiki.onosproject.org/display/ONOS/VPLS+User+Guide
