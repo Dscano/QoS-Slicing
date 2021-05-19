@@ -14,7 +14,7 @@ The folder `ONOS File` contains the files that you have to sobstitute in the ONO
 have the same name of the files in the onos master folder. So you have to simply copy/paste it in the right folder.
 
 ## Steps to install QoS-Slice in Onos
-Before to install QoS-Slice you have to activate the VPLS application, that is included in the ONOS master distribution. To install and activate the QOSlicing app you have to run this command in the the Qos-Slicing folder:
+Before to install QoS-Slice you have to activate the VPLS application, that is included in the ONOS master distribution. To install and activate the QoS-Slicing app you have to run this command in the the Qos-Slicing folder:
 
     onos-app localhost install! org.qosslice.app target/qosslice-app-2.3.0-rc3.oar  
     
