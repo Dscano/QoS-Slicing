@@ -14,8 +14,7 @@ The folder `ONOS File` contains the files that you have to sobstitute in the ono
 have the same name of the files in the onos master folder. So you have to simply copy/paste it in the right folder.
 
 ## Steps to install QoS-Slice in Onos
-Before to install QoS-Slice you have to activate the [VPLS][VPLS]application, already provided in the onos master.
-In the the Qos-Slicing folder you have to run this command:
+Before to install QoS-Slice you have to activate the [VPLS][VPLS] application, already provided in the onos master. In the the Qos-Slicing folder you have to run this command:
 
     onos-app localhost install! org.qosslice.app target/qosslice-app-2.3.0-rc3.oar  
     
@@ -23,18 +22,21 @@ Once you have installed the QoS-Slicing you can configure the slices, via CLI or
     
 ## Steps to configure QoS-Slice in Onos
 
-To run a single [BMv2][BMv2] switch with GTPV1-P4 pipeline:
+To define a `slice` withount performance isolation form host h1 to host h2, you have to run these commands in the onos CLI:
 
-    sudo ./simple_switch -i 0@<iface0> -i 1@<iface1> ../main.json 
+        interface-add of:0000000000000001/1 h1             
+        interface-add of:0000000000000004/1 h2 
+        vpls create VPLS-1                                 
+        vpls add-if VPLS-1 h1                              
+        vpls add-if VPLS-1 h2
     
-To configure/inspect the flow rules in each switch by hand, you have to access the switch via `Simple_switch_CLI`, provided by behavioral model, e.g., 
+To add/enrich a `slice` with performance isolation for the bandwidth, you have to run these commands in the onos CLI:
 
-    sudo Simple_switch_CLI --thrift-port portNumber
+    band -br -uk -b 1000 -dp 1 -nb band1 add-band     
+    qos-slice create SLICE-1 VPLS-1                    
+    qos-slice add-band SLICE-1 band1                
+    qos-slice add-meter SLICE-1
     
-Once you accessed the switch via CLI you are able to configure the flow rules in each table via the commands provided by the CLI, e.g. `table_add`.
-
-To load a set of flow rules in a switch from a file you can use:
-
-    sudo Simple_switch_CLI --thrift-port portNumber < .../Commands_s1.txt
+More in details, in the switches that belonging to the slice `SLICE-1` is installed a meter of type drop that  drop the packet ttha exceed 1Mbit.
     
 [VPLS]: https://wiki.onosproject.org/display/ONOS/VPLS+User+Guide
