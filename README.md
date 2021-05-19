@@ -2,15 +2,16 @@
 
 This Onos application provides network slicing and performance isolation, in terms of both connectivity and performance.
 
-The folders/files contain:
+The folders/file contain:
 * `ONOS File`: contains the files that you have to change in the onos master repository for utilizing the QoS-Slicing application.
 * `target`: contains compiled QoS-Slice application, e.g. the oar file. The compiled file is needed to install the application on onos
 * `src`: contains the application java source code. 
 * `topology`: is a python script for creating a mininet network.
 
-## Table0 in GTPV1-P4 pipeline
+## Changes in ONOS master repository 
 
-This table is redundant, because it's steer the traffic. In other word, the `table_encap_gtp` and  the `table_decap_gtp` have actions that are able to apply the GTP encap/decap and forward the traffic to a certain port. The `table0` have an action that simply forward a pkt from an input port to a certain aotput port. This table was introduced in the pipeline bacause during the development phase of the P4 program I used `iperf3` as a traffic generator, without this table the `iperf3` "management pkt" are not forwarded from the client to the server. In other word the `iperf3` connection fails. When I moved the GTPV1-P4 pipeline in a real enviroment I removed the `table0` from the pipeline and the real traffic generated in my real network is succesfully GTP encapsulated/decapsulated/steered.
+The folder `ONOS File` contains the files that you have to sobstitute in the onos master folder that you have downloaded. The files in the `ONOS File` folder 
+have the same name of the files in the onos master folder. So you have to simply copy/paste it in the right folder.
 
 ## Steps to run GTPV1-P4 on Mininet
 
