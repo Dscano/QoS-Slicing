@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "title": "qosslice",
+
+  "required": [
+    "vpls-name",
+    "qos-name"
+  ],
+  "properties": {
+    "vpls-name": {
+      "type": "String",
+      "example": "VPLS1"
+    },
+    "qos-name": {
+      "type": "String",
+      "example": "SLICE1"
+    },
+    "queue": {
+      "type": "Boolean",
+      "example": true
+    },
+    "meter": {
+      "type": "Boolean",
+      "example": true
+    },
+    "unit": {
+      "type": "string",
+      "example": "KB_PER_SEC"
+    },
+    "bands": {
+      "type": "array",
+      "xml": {
+        "name": "bands",
+        "wrapped": true
+      },
+      "items": {
+        "type": "object",
+        "title": "bands",
+        "required": [
+          "type",
+          "rate",
+          "burstSize",
+          "prec"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "REMARK"
+          },
+          "rate": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "burstSize": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "prec": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+org/qosslice/app/store/StoreAdapter.class
+org/qosslice/app/config/AppConfigTest.class
+org/qosslice/app/AppQoSSlicingTest.class
+org/qosslice/app/SliceTest.class

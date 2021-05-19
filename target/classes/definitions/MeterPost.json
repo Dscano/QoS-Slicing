@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "title": "band",
+  "required": [
+    "type",
+    "rate",
+    "burstSize",
+    "prec"
+  ],
+  "properties": {
+          "type": {
+            "type": "string",
+            "example": "REMARK"
+          },
+          "rate": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "burstSize": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "prec": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          }
+  }
+}
